@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Age Calculator</title>
+</head>
+<body> 
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <form>
+
+        <h1>Age Calculator</h1>
+    <div id="calculator">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+        <button id="calculate">Calculate</button>
+        <p class="para">Your age is: <span id="age"></span></p>
+    </div>
+    <script>
+        document.getElementById('calculate').addEventListener('click', function() {
+            var dob = new Date(document.getElementById('dob').value);
+            var now = new Date();
+            var age = now.getFullYear() - dob.getFullYear();
+            if (now < new Date(now.getFullYear(), dob.getMonth(), dob.getDate())) {
+                age--;
+            }
+            document.getElementById('age').textContent = age + " years old";
+            event.preventDefault()
+        });
+    </script>
+</body>
+</html>
